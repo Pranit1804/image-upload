@@ -24,15 +24,15 @@ Simple cross-platform Flutter app (Android, iOS, Web) to:
 
 ### Mobile
 
-![Mobile Empty State](assets/screenshots/app-mobile-image-1.jpeg)
+<img src="assets/screenshots/app-mobile-image-1.jpeg" alt="Mobile Empty State" width="220" height="440" />
 
-![Mobile Gallery State](assets/screenshots/app-mobile-image-2.jpeg)
+<img src="assets/screenshots/app-mobile-image-2.jpeg" alt="Mobile Gallery State" width="220" height="440" />
 
 ### Firebase Console
 
-![Firebase Storage](assets/screenshots/dashboard-image-1.png)
+<img src="assets/screenshots/dashboard-image-1.png" alt="Firebase Storage" width="420" height="240" />
 
-![Firebase Firestore](assets/screenshots/dashboard-image-2.png)
+<img src="assets/screenshots/dashboard-image-2.png" alt="Firebase Firestore" width="420" height="240" />
 
 ## Screen Recording
 
