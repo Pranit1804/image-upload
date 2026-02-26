@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../gallery_constants.dart';
 import '../providers/gallery_providers.dart';
 
 class UploadProgressBar extends ConsumerWidget {
@@ -20,7 +21,7 @@ class UploadProgressBar extends ConsumerWidget {
       children: [
         LinearProgressIndicator(
           value: progress > 0 ? progress : null,
-          minHeight: 3,
+          minHeight: GalleryConstants.uploadProgressBarHeight,
         ),
         if (progress > 0)
           Container(
@@ -28,9 +29,9 @@ class UploadProgressBar extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             color: Theme.of(context).colorScheme.primaryContainer,
             child: Text(
-              'Uploading... ${(progress * 100).toStringAsFixed(0)}%',
+              '${GalleryConstants.uploadProgressPrefix}${(progress * 100).toStringAsFixed(0)}%',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: GalleryConstants.uploadProgressTextSize,
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
               ),
             ),

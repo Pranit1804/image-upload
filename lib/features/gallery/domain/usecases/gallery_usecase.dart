@@ -1,5 +1,6 @@
 import 'package:uuid/uuid.dart';
 
+import '../../gallery_constants.dart';
 import '../entities/image_entity.dart';
 import '../repositories/gallery_repository.dart';
 
@@ -22,7 +23,7 @@ class GalleryUseCase {
 
     final fileExtension = pickedFile.name.split('.').last;
     final fileName = '${_uuid.v4()}.$fileExtension';
-    final storagePath = 'images/$fileName';
+    final storagePath = '${GalleryConstants.storageImagesFolder}/$fileName';
 
     final downloadUrl = await _repository.uploadImage(
       pickedFile,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../gallery_constants.dart';
 import '../providers/gallery_providers.dart';
 import '../widgets/empty_gallery_view.dart';
 import '../widgets/image_grid.dart';
@@ -15,7 +16,7 @@ class GalleryScreen extends ConsumerWidget {
     final isUploading = ref.watch(isUploadingProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Image Gallery')),
+      appBar: AppBar(title: const Text(GalleryConstants.appTitle)),
       body: Column(
         children: [
           const UploadProgressBar(),
@@ -43,7 +44,7 @@ class GalleryScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'Error loading images',
+                        GalleryConstants.errorLoadingImagesTitle,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 8),
@@ -58,7 +59,7 @@ class GalleryScreen extends ConsumerWidget {
                           ref.invalidate(imagesStreamProvider);
                         },
                         icon: const Icon(Icons.refresh),
-                        label: const Text('Retry'),
+                        label: const Text(GalleryConstants.retryLabel),
                       ),
                     ],
                   ),
@@ -70,7 +71,7 @@ class GalleryScreen extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: isUploading ? null : () => _handleUpload(context, ref),
-        tooltip: 'Upload Image',
+        tooltip: GalleryConstants.uploadImageTooltip,
         child: isUploading
             ? const SizedBox(
                 width: 24,
@@ -92,7 +93,7 @@ class GalleryScreen extends ConsumerWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Image uploaded successfully!'),
+            content: Text(GalleryConstants.uploadSuccessMessage),
             backgroundColor: Colors.green,
           ),
         );
@@ -101,7 +102,7 @@ class GalleryScreen extends ConsumerWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Upload failed: $e'),
+            content: Text('${GalleryConstants.uploadFailedPrefix}$e'),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );

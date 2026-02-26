@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../gallery_constants.dart';
 import '../../domain/entities/image_entity.dart';
 import 'providers.dart';
 
@@ -8,7 +9,9 @@ final imagesStreamProvider = StreamProvider<List<ImageEntity>>((ref) {
   return useCase.getImages();
 });
 
-final uploadProgressProvider = StateProvider<double>((ref) => 0.0);
+final uploadProgressProvider = StateProvider<double>(
+  (ref) => GalleryConstants.uploadInitialProgress,
+);
 
 final isUploadingProvider = StateProvider<bool>((ref) => false);
 
@@ -26,7 +29,8 @@ class GalleryController {
 
     try {
       _ref.read(isUploadingProvider.notifier).state = true;
-      _ref.read(uploadProgressProvider.notifier).state = 0.0;
+      _ref.read(uploadProgressProvider.notifier).state =
+          GalleryConstants.uploadInitialProgress;
 
       await useCase.uploadImage(
         onProgress: (progress) {
@@ -34,7 +38,8 @@ class GalleryController {
         },
       );
     } finally {
-      _ref.read(uploadProgressProvider.notifier).state = 0.0;
+      _ref.read(uploadProgressProvider.notifier).state =
+          GalleryConstants.uploadInitialProgress;
       _ref.read(isUploadingProvider.notifier).state = false;
     }
   }

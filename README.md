@@ -20,6 +20,26 @@ Simple cross-platform Flutter app (Android, iOS, Web) to:
 - `lib/features/gallery/data` - models, datasources, repository implementation
 - `lib/features/gallery/presentation` - providers, screen, widgets
 
+## Future Enhancements
+
+- Authentication (email/social) and user-based image ownership
+- Secure Firebase rules for per-user access control
+- Upload progress, retry, cancellation, and better error UX
+- Image compression/resizing before upload to reduce bandwidth
+- Pagination/lazy loading for large galleries
+- Delete/rename images and metadata editing
+- Search, sort, and filter in gallery view
+- Offline caching and background sync support
+- Unit, widget, and integration test coverage improvements
+- CI/CD setup (lint, test, build) for automated quality checks
+
+## Out of Scope (Assignment Constraints)
+
+- Production-grade authentication and authorization flows
+- Full hardening of Firestore/Storage security rules
+- Performance tuning for very large datasets
+- Complete edge-case handling across all platforms/devices
+
 ## Screenshots
 
 ### Mobile
@@ -38,4 +58,8 @@ Simple cross-platform Flutter app (Android, iOS, Web) to:
 
 - [Watch Recording](assets/screenshots/app-web-screenrecording.mov)
 
-Note: current rules are intentionally simple for assignment/demo use.
+
+
+## Notes
+
+Current rules are intentionally simple for assignment/demo use.

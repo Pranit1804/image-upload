@@ -4,6 +4,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../gallery_constants.dart';
+
 class FirebaseStorageDataSource {
   final FirebaseStorage _storage;
 
@@ -57,18 +59,7 @@ class FirebaseStorageDataSource {
 
   String _getContentType(String fileName) {
     final extension = fileName.split('.').last.toLowerCase();
-    switch (extension) {
-      case 'jpg':
-      case 'jpeg':
-        return 'image/jpeg';
-      case 'png':
-        return 'image/png';
-      case 'gif':
-        return 'image/gif';
-      case 'webp':
-        return 'image/webp';
-      default:
-        return 'image/jpeg';
-    }
+    return GalleryConstants.mimeTypeByExtension[extension] ??
+        GalleryConstants.defaultImageMimeType;
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../gallery_constants.dart';
+
 class EmptyGalleryView extends StatelessWidget {
   const EmptyGalleryView({super.key});
 
@@ -12,20 +14,24 @@ class EmptyGalleryView extends StatelessWidget {
           Icon(
             Icons.photo_library_outlined,
             size: 80,
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+            color: Theme.of(context).colorScheme.primary.withOpacity(
+              GalleryConstants.emptyIconOpacity,
+            ),
           ),
           const SizedBox(height: 16),
           Text(
-            'No images yet',
+            GalleryConstants.emptyStateTitle,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 8),
           Text(
-            'Tap the + button to upload your first image',
+            GalleryConstants.emptyStateSubtitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(
+                GalleryConstants.emptySubtitleOpacity,
+              ),
             ),
           ),
         ],

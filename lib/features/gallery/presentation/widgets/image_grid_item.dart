@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../gallery_constants.dart';
 import '../../domain/entities/image_entity.dart';
 
 class ImageGridItem extends ConsumerWidget {
@@ -42,7 +43,10 @@ class ImageGridItem extends ConsumerWidget {
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
-                    colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+                    colors: [
+                      Colors.black.withOpacity(GalleryConstants.overlayOpacity),
+                      Colors.transparent,
+                    ],
                   ),
                 ),
                 child: Text(
@@ -74,17 +78,17 @@ class ImageGridItem extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: InteractiveViewer(
-                  minScale: 1,
-                  maxScale: 4,
+                  minScale: GalleryConstants.previewMinScale,
+                  maxScale: GalleryConstants.previewMaxScale,
                   child: Image.network(
                     image.url,
                     fit: BoxFit.contain,
                     webHtmlElementStrategy: WebHtmlElementStrategy.fallback,
                     errorBuilder: (context, error, stackTrace) => SizedBox(
-                      height: 320,
+                      height: GalleryConstants.previewErrorHeight,
                       child: Center(
                         child: Text(
-                          'Unable to load image',
+                          GalleryConstants.unableToLoadImage,
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),
@@ -114,11 +118,11 @@ class ImageGridItem extends ConsumerWidget {
     if (difference.inDays > 0) {
       return DateFormat('MMM d, y').format(timestamp);
     } else if (difference.inHours > 0) {
-      return '${difference.inHours}h ago';
+      return '${difference.inHours}${GalleryConstants.hoursAgoSuffix}';
     } else if (difference.inMinutes > 0) {
-      return '${difference.inMinutes}m ago';
+      return '${difference.inMinutes}${GalleryConstants.minutesAgoSuffix}';
     } else {
-      return 'Just now';
+      return GalleryConstants.justNow;
     }
   }
 }
