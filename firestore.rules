@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /images/{imageId} {
+      allow read: if isSignedIn();
+
+      allow create: if isSignedIn()
+        && request.resource.data.keys().hasOnly(['url', 'timestamp', 'storagePath'])
+        && request.resource.data.url is string
+        && request.resource.data.storagePath is string
+        && request.resource.data.timestamp is timestamp;
+
+      allow delete: if isSignedIn();
+      allow update: if false;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "868403001816",
+    "project_id": "image-upload-de7d9",
+    "storage_bucket": "image-upload-de7d9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868403001816:android:ca03a44dc48c6cfd835aad",
+        "android_client_info": {
+          "package_name": "com.example.imageUpload"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQcfYs7vlgoSvxhuLvHqwDlmiIc907f2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868403001816:android:459d532af402ac77835aad",
+        "android_client_info": {
+          "package_name": "com.example.image_upload"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQcfYs7vlgoSvxhuLvHqwDlmiIc907f2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
